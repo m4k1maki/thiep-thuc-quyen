@@ -54,18 +54,20 @@
             background: url('https://i.scdn.co/image/ab67616d0000b27364e7a260933998d297e0a1de') center/cover no-repeat;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
+            justify-content: flex-end; /* Changed to flex-end to move text to bottom */
             align-items: center;
-            padding-top: 10%;
-            color: white;
+            padding-bottom: 10%; /* Added padding at bottom */
+            color: #ff1493; /* Changed to a highlighted color (DeepPink) */
             font-size: 2.2em;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8), 0 0 10px #ff1493; /* Added glow effect */
             font-family: 'Great Vibes', cursive;
+            text-align: center; /* Adjusted to center the text */
         }
         .finger {
             font-size: 2em;
             animation: pulse 1.5s ease-in-out infinite;
             margin-top: 10px;
+            display: none; /* Removed finger pointer since text is at bottom */
         }
         @keyframes pulse {
             0% { transform: scale(1); }
@@ -143,18 +145,30 @@
         }
         .sticker {
             position: absolute;
-            width: 50px;
-            height: 50px;
             background-size: contain;
             background-repeat: no-repeat;
             animation: floatSticker 8s infinite;
             opacity: 0.8;
         }
-        .sticker.heart-sticker {
-            background-image: url('https://www.citypng.com/public/uploads/preview/sanrio-character-kawaii-kuromi-character-hd-png-735811696610428etybpb3xz6.png');
+        .sticker.sticker1 {
+            width: 50px;
+            height: 50px;
+            background-image: url('https://img1.picmix.com/output/stamp/normal/5/5/2/4/2384255_a793b.png');
         }
-        .sticker.kuromi-sticker {
-            background-image: url('https://cbam.edu.vn/wp-content/uploads/2024/10/kuromi-cute-48FHWeuZ.png');
+        .sticker.sticker2 {
+            width: 60px;
+            height: 60px;
+            background-image: url('https://i.pinimg.com/236x/93/18/b7/9318b7b938621f69a8a1d75abece6d72.jpg');
+        }
+        .sticker.sticker3 {
+            width: 70px;
+            height: 70px;
+            background-image: url('https://www.citypng.com/public/uploads/preview/shy-kuromi-with-colorful-hearts-hd-transparent-png-735811696609013ddz54ddt6r.png?v=2025052818');
+        }
+        .sticker.sticker4 {
+            width: 50px;
+            height: 50px;
+            background-image: url('https://gimgs2.nohat.cc/thumb/f/640/image-result-for-kuromi-transparent-kawaii-sanrio-clipart--comdlpng6935779.jpg');
         }
         @keyframes floatSticker {
             0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
@@ -176,10 +190,9 @@
             100% { transform: scale(1.5) translateY(-20px); opacity: 0; }
         }
         @media (max-width: 600px) {
-            .card-front { font-size: 1.8em; padding-top: 15%; }
+            .card-front { font-size: 1.8em; padding-bottom: 15%; }
             .typewriter { font-size: 1.1em; }
             .replay-btn { font-size: 0.9em; padding: 8px 16px; }
-            .finger { font-size: 1.5em; }
             .sticker { width: 40px; height: 40px; }
         }
     </style>
@@ -189,7 +202,7 @@
     <div class="card-container">
         <div class="card" id="card">
             <div class="card-front">
-                <div>Thục Quyên Ơi, Mở Thiệp Nào! 💌</div>
+                <div>Quyên ơi mở thiệp đi emmm! 💌</div>
                 <div class="finger">👆</div>
             </div>
             <div class="card-back">
@@ -291,12 +304,14 @@
 
         function createStickers() {
             const stickers = [
-                { class: 'heart-sticker', url: 'https://www.citypng.com/public/uploads/preview/sanrio-character-kawaii-kuromi-character-hd-png-735811696610428etybpb3xz6.png' },
-                { class: 'kuromi-sticker', url: 'https://cbam.edu.vn/wp-content/uploads/2024/10/kuromi-cute-48FHWeuZ.png' }
+                { class: 'sticker sticker1', url: 'https://img1.picmix.com/output/stamp/normal/5/5/2/4/2384255_a793b.png' },
+                { class: 'sticker sticker2', url: 'https://i.pinimg.com/236x/93/18/b7/9318b7b938621f69a8a1d75abece6d72.jpg' },
+                { class: 'sticker sticker3', url: 'https://www.citypng.com/public/uploads/preview/shy-kuromi-with-colorful-hearts-hd-transparent-png-735811696609013ddz54ddt6r.png?v=2025052818' },
+                { class: 'sticker sticker4', url: 'https://gimgs2.nohat.cc/thumb/f/640/image-result-for-kuromi-transparent-kawaii-sanrio-clipart--comdlpng6935779.jpg' }
             ];
-            for (let i = 0; i < 2; i++) {
+            for (let i = 0; i < 4; i++) {
                 const sticker = document.createElement('div');
-                sticker.className = 'sticker ' + stickers[i % 2].class;
+                sticker.className = stickers[i].class;
                 sticker.style.left = Math.random() * 80 + 10 + 'vw';
                 sticker.style.animationDelay = Math.random() * 4 + 's';
                 document.body.appendChild(sticker);
