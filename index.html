@@ -29,6 +29,10 @@
             height: 70vh;
             max-height: 600px;
             position: relative;
+            margin: 0 auto; /* Ensure centering */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .card {
             width: 100%;
@@ -54,16 +58,15 @@
             background: url('https://i.scdn.co/image/ab67616d0000b27364e7a260933998d297e0a1de') center/cover no-repeat;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end; /* Changed to flex-end to move text to bottom */
+            justify-content: flex-end;
             align-items: center;
-            padding-bottom: 10%; /* Added padding at bottom */
-            color: #ff1493; /* Changed to a highlighted color (DeepPink) */
+            padding-bottom: 10%;
+            color: #ff1493;
             font-size: 2.2em;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8), 0 0 10px #ff1493; /* Added glow effect */
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8), 0 0 10px #ff1493;
             font-family: 'Great Vibes', cursive;
-            text-align: center; /* Adjusted to center the text */
+            text-align: center;
         }
-       
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.2); }
@@ -142,6 +145,7 @@
             position: absolute;
             background-size: contain;
             background-repeat: no-repeat;
+            background-color: transparent; /* Ensure no white background */
             animation: floatSticker 8s infinite;
             opacity: 0.8;
         }
@@ -153,17 +157,32 @@
         .sticker.sticker2 {
             width: 60px;
             height: 60px;
-            background-image: url('https://i.pinimg.com/236x/93/18/b7/9318b7b938621f69a8a1d75abece6d72.jpg');
+            background-image: url('https://img1.picmix.com/output/stamp/normal/6/6/2/7/2637266_c8d12.png');
         }
         .sticker.sticker3 {
-            width: 70px;
-            height: 70px;
-            background-image: url('https://www.citypng.com/public/uploads/preview/shy-kuromi-with-colorful-hearts-hd-transparent-png-735811696609013ddz54ddt6r.png?v=2025052818');
-        }
-        .sticker.sticker4 {
             width: 50px;
             height: 50px;
-            background-image: url('https://gimgs2.nohat.cc/thumb/f/640/image-result-for-kuromi-transparent-kawaii-sanrio-clipart--comdlpng6935779.jpg');
+            background-image: url('https://img1.picmix.com/output/stamp/normal/8/4/9/8/1938948_5d578.png');
+        }
+        .sticker.sticker5 {
+            width: 50px;
+            height: 50px;
+            background-image: url('https://img1.picmix.com/output/stamp/normal/6/7/0/4/1754076_32f87.png');
+        }
+        .sticker.sticker6 {
+            width: 50px;
+            height: 50px;
+            background-image: url('https://img1.picmix.com/output/stamp/normal/7/5/9/4/2624957_71d09.png');
+        }
+        .sticker.sticker7 {
+            width: 50px;
+            height: 50px;
+            background-image: url('https://img1.picmix.com/output/stamp/normal/7/7/0/4/1754077_8cd31.png');
+        }
+        .sticker.sticker8 {
+            width: 50px;
+            height: 50px;
+            background-image: url('https://img1.picmix.com/output/stamp/normal/6/1/4/9/2379416_da5b2.png');
         }
         @keyframes floatSticker {
             0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
@@ -185,10 +204,27 @@
             100% { transform: scale(1.5) translateY(-20px); opacity: 0; }
         }
         @media (max-width: 600px) {
-            .card-front { font-size: 1.8em; padding-bottom: 15%; }
-            .typewriter { font-size: 1.1em; }
-            .replay-btn { font-size: 0.9em; padding: 8px 16px; }
-            .sticker { width: 40px; height: 40px; }
+            .card-container {
+                width: 95vw; /* Slightly wider to ensure centering */
+                max-width: 380px;
+                margin: 0 auto;
+            }
+            .card-front { 
+                font-size: 1.8em; 
+                padding-bottom: 15%; 
+            }
+            .typewriter { 
+                font-size: 1.1em; 
+                text-align: center; /* Ensure text stays centered on mobile */
+            }
+            .replay-btn { 
+                font-size: 0.9em; 
+                padding: 8px 16px; 
+            }
+            .sticker { 
+                width: 40px; 
+                height: 40px; 
+            }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
@@ -197,7 +233,7 @@
     <div class="card-container">
         <div class="card" id="card">
             <div class="card-front">
-                <div>Quyên ơi mở thiệp đi emmm! 💌</div>                
+                <div>Quyên ơi mở thiệp đi emmm! 💌</div>
             </div>
             <div class="card-back">
                 <div class="typewriter" id="typewriter"></div>
@@ -301,12 +337,12 @@
                 { class: 'sticker sticker1', url: 'https://img1.picmix.com/output/stamp/normal/5/5/2/4/2384255_a793b.png' },
                 { class: 'sticker sticker2', url: 'https://img1.picmix.com/output/stamp/normal/6/6/2/7/2637266_c8d12.png' },
                 { class: 'sticker sticker3', url: 'https://img1.picmix.com/output/stamp/normal/8/4/9/8/1938948_5d578.png' },
-                { class: 'sticker sticker5', url: 'https://img1.picmix.com/output/stamp/normal/6/7/0/4/1754076_32f87.png' }
-                { class: 'sticker sticker6', url: 'https://img1.picmix.com/output/stamp/normal/7/5/9/4/2624957_71d09.png' }
-                { class: 'sticker sticker7', url: 'https://img1.picmix.com/output/stamp/normal/7/7/0/4/1754077_8cd31.png' }
+                { class: 'sticker sticker5', url: 'https://img1.picmix.com/output/stamp/normal/6/7/0/4/1754076_32f87.png' },
+                { class: 'sticker sticker6', url: 'https://img1.picmix.com/output/stamp/normal/7/5/9/4/2624957_71d09.png' },
+                { class: 'sticker sticker7', url: 'https://img1.picmix.com/output/stamp/normal/7/7/0/4/1754077_8cd31.png' },
                 { class: 'sticker sticker8', url: 'https://img1.picmix.com/output/stamp/normal/6/1/4/9/2379416_da5b2.png' }
             ];
-            for (let i = 0; i < 8; i++) {
+            for (let i = 0; i < 7; i++) {
                 const sticker = document.createElement('div');
                 sticker.className = stickers[i].class;
                 sticker.style.left = Math.random() * 80 + 10 + 'vw';
